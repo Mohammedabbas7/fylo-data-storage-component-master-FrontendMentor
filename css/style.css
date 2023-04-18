@@ -1,0 +1,212 @@
+/* ===Google Fonts=== */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+/* ===Custom Properties=== */
+
+:root {
+    --clr-pale-blue: hsl(243, 100%, 93%);
+    --clr-grayish-blue: hsl(229, 7%, 55%);
+    --clr-dark-blue: hsl(228, 56%, 26%);
+    --clr-very-dark-blue: hsl(229, 57%, 11%);
+    --clr-white: hsl(0, 0%, 100%); 
+    --br: .6rem;
+}
+
+/* ===CSS Reset=== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===Utility Class=== */
+
+.round-corner {
+    border-radius: var(--br);
+}
+
+/* ===Base Style=== */
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    background-image: url(../images/bg-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--clr-very-dark-blue);
+    color: var(--clr-white);
+}
+
+ul {
+    list-style: none;
+}
+
+/* ===Main Style=== */
+
+.container {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.component {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 280px;
+}
+
+.component__function {
+    background-color: var(--clr-dark-blue);
+    padding: 2rem;
+    border-radius: 10px 90px 10px 10px;
+}
+
+.logo {
+    margin-bottom: 1rem;
+}
+
+.function-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--clr-very-dark-blue);
+    padding: .6rem;
+}
+
+.component__storage {
+    position: relative;
+    background-color: var(--clr-dark-blue);
+    padding: 2rem;
+}
+
+.component__storage p {
+    font-size: .8rem;
+    color: var(--clr-pale-blue);
+    margin-bottom: 1rem;
+}
+
+.used-data {
+    font-weight: 700;
+    color: var(--clr-white);
+}
+
+.storage-bar {
+    position: relative;
+    padding: 2px;
+    margin-bottom: .5rem;
+    background-color: var(--clr-very-dark-blue);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.storage__used {
+    position: relative;
+    width: 80%;
+    padding-block: 7px;
+    background-image: linear-gradient(to right, hsl(2, 100%, 79%), hsl(338, 99%, 66%));
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.storage__used::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--clr-white);
+}
+
+.storage__capacity {
+    display: flex;
+    justify-content: space-between;
+    font-size: .6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.storage__unused {
+    position: absolute;
+    right: 25%;
+    padding: .8rem 1.3rem;
+    background-color: var(--clr-white);
+    color: var(--clr-grayish-blue);
+    font-size: .6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.storage__unused span {
+    font-size: 1.8rem;
+    color: var(--clr-very-dark-blue);
+}
+
+
+/* ===Footer Style=== */
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+.attribution a { 
+    color: var(--clr-pale-blue); 
+    transition: color .2s;
+}
+
+.attribution a:hover {
+    text-decoration: none;
+    color: hsl(2, 100%, 79%);
+}
+
+/* ===Media Queries=== */
+
+@media(min-width: 768px) {
+
+    body {
+        background-image: url(../images/bg-desktop.png);
+        background-size: 100% 55%;
+        background-position: bottom;
+    }
+
+    .component {
+        flex-direction: row;
+        min-width: 850px;
+    }
+    
+    .component__function {
+        flex-basis: 35%;
+    }
+
+    .component__storage {
+        flex-basis: 65%;
+        align-self: end;
+    }
+
+    .storage__unused {
+        top: -25%;
+        right: 6%;
+    }
+
+    .storage__unused::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -40px;
+        clip-path: polygon(100% 0, 45% 0, 100% 56%);
+        width: 50px;
+        height: 50px;
+        background-color: var(--clr-white);
+    }
+
+}
